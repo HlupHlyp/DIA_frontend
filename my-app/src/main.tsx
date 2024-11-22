@@ -1,7 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import ITunesPage from "./ITunesPage";
+import ITunesPage from "./pages/ITunesPage/ITunesPage";
+import {HomePage} from "./pages/HomePage/HomePage";
+import App from './App.tsx'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
@@ -9,25 +11,16 @@ import './index.css'
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <ITunesPage />
+    element: <HomePage />
   },
   {
-    path: '/new',
-    element: <h1>Это наша страница с чем-то новеньким</h1>
+    path: '/albums',
+    element: <ITunesPage />
   }
 ])
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <ul>
-      <li>
-        <a href="/">Старт</a>
-      </li>
-      <li>
-        <a href="/new">Хочу на страницу с чем-то новеньким</a>
-      </li>
-    </ul>
-    <hr />
-    <RouterProvider router={router} />
+    <App />
   </React.StrictMode>,
 )
