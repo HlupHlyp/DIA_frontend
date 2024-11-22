@@ -6,7 +6,8 @@ import { useParams } from "react-router-dom";
 import { ITunesMusic, getAlbumById } from "../../modules/itunesApi";
 import { Col, Row, Spinner, Image } from "react-bootstrap";
 //import { ALBUMS_MOCK } from "../../modules/mock";
-import DefaultImage from "./assets/DefaultImage.jpg";
+import DefaultImage from "../../assets/DefaultImage.jpeg";
+import { SONGS_MOCK } from "../../modules/mock";
 
 export const AlbumPage: FC = () => {
   const [pageData, setPageDdata] = useState<ITunesMusic>();
@@ -16,7 +17,15 @@ export const AlbumPage: FC = () => {
   useEffect(() => {
     if (!id) return;
     getAlbumById(id)
-      .then((response) => setPageDdata(response.results[0]));
+      .then((response) => setPageDdata(response.results[0]))
+      .catch(
+        () =>
+          setPageDdata(
+            SONGS_MOCK.results.find(
+              (album) => String(album.collectionId) == id
+            )
+          ) /* В случае ошибки используем мок данные, фильтруем по ид */
+      );
   }, [id]);
 
   return (

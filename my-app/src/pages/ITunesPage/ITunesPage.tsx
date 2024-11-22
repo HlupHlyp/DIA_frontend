@@ -7,6 +7,7 @@ import { BreadCrumbs } from "../../components/BreadCrumbs/BreadCrumbs";
 import { ROUTES, ROUTE_LABELS } from "../../Routes";
 import { MusicCard } from "../../components/MusicCard/MusicCard";
 import { useNavigate } from "react-router-dom";
+import { SONGS_MOCK } from "../../modules/mock";
 
 const ITunesPage: FC = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -23,6 +24,16 @@ const ITunesPage: FC = () => {
           response.results.filter((item) => item.wrapperType === "track")
         );
         setLoading(false);
+      })
+      .catch(() => { // В случае ошибки используем mock данные, фильтруем по имени
+        setMusic(
+          SONGS_MOCK.results.filter((item) =>
+            item.collectionCensoredName
+              .toLocaleLowerCase()
+              .startsWith(searchValue.toLocaleLowerCase())
+          )
+        );
+        setLoading(false);
       });
   };
   const handleCardClick = (id: number) => {
@@ -33,7 +44,7 @@ const ITunesPage: FC = () => {
   return (
     <div className="container">
       <BreadCrumbs crumbs={[{ label: ROUTE_LABELS.ALBUMS }]} />
-      
+
       <InputField
         value={searchValue}
         setValue={(value) => setSearchValue(value)}
