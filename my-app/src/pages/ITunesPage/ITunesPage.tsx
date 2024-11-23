@@ -39,9 +39,8 @@ const ITunesPage: FC = () => {
   };
 
   return (
-    <div className="container">
+    <div className="space">
       <BreadCrumbs crumbs={[{ label: ROUTE_LABELS.ALBUMS }]} />
-
       <InputField
         value={searchValue}
         setValue={(value) => setSearchValue(value)}
@@ -49,18 +48,18 @@ const ITunesPage: FC = () => {
         onSubmit={handleSearch}
       />
 
-      {loading && ( // здесь можно было использовать тернарный оператор, но это усложняет читаемость
-        <div className="loadingBg">
-          <Spinner animation="border" />
-        </div>
-      )}
+      {loading && ( //здесь можно было использовать тернарный оператор, но это усложняет читаемость
+          <div className="loadingBg">
+            <Spinner animation="border" />
+          </div>)
+      }
       {!loading &&
         (!music.length /* Проверка на существование данных */ ? (
           <div>
             <h1>К сожалению, пока ничего не найдено :(</h1>
           </div>
         ) : (
-          <Row xs={4} md={4} className="g-4">
+          <div className="container">
             {music.map((item, index) => (
               <Col key={index}>
                 <ItemCard
@@ -68,7 +67,7 @@ const ITunesPage: FC = () => {
                 />
               </Col>
             ))}
-          </Row>
+          </div>
         ))}
     </div>
   );
