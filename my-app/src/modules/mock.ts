@@ -1,31 +1,28 @@
-import { ITunesResult } from "./itunesApi.ts";
+import { ItemResult } from "./itunesApi.ts";
 
-export const SONGS_MOCK: ITunesResult = {
+export const SONGS_MOCK: ItemResult = {
     resultCount: 3,
     results: [
         {
-            wrapperType: "track",
-            artistName: "Pink Floyd",
-            collectionCensoredName: "The Wall",
-            trackViewUrl: "",
-            artworkUrl100: "",
-            collectionId: 0,
+            img_link: "http://127.0.0.1:9000/solar-energy/solar_panel_1.gif",
+            item_name: "ПАНЕЛЬ СОЛНЕЧНАЯ 285 ВТ 24 В ПОЛИ",
+            short_description: 'General Energo!Мощность 210Вт!Поликристаллические, Grade A',
+            item_cost: 10500,
+            item_id: 0,
         },
         {
-            wrapperType: "track",
-            artistName: "Queen",
-            collectionCensoredName: "A Night At The Opera",
-            trackViewUrl: "",
-            artworkUrl100: "",
-            collectionId: 1,
+            img_link: "http://127.0.0.1:9000/solar-energy/solar_panel_1.gif",
+            item_name: "ПАНЕЛЬ СОЛНЕЧНАЯ 285 ВТ 24 В ПОЛИ",
+            short_description: 'General Energo!Мощность 210Вт!Поликристаллические, Grade A',
+            item_cost: 10500,
+            item_id: 1,
         },
         {
-            wrapperType: "track",
-            artistName: "AC/DC",
-            collectionCensoredName: "Made in Heaven",
-            trackViewUrl: "",
-            artworkUrl100: "",
-            collectionId: 2,
+            img_link: "http://127.0.0.1:9000/solar-energy/solar_panel_1.gif",
+            item_name: "ПАНЕЛЬ СОЛНЕЧНАЯ 285 ВТ 24 В ПОЛИ",
+            short_description: 'General Energo!Мощность 210Вт!Поликристаллические, Grade A',
+            item_cost: 10500,
+            item_id: 2,
         },
     ],
 };

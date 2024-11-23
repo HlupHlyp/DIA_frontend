@@ -1,26 +1,25 @@
-export interface ITunesMusic {
-    wrapperType: string;
-    artworkUrl100: string;
-    artistName: string;
-    collectionCensoredName: string;
-    trackViewUrl: string;
-    collectionId: number;
-  }
-  export interface ITunesResult {
-    resultCount: number;
-    results: ITunesMusic[];
-  }
-  
-  export const getMusicByName = async (name = ""): Promise<ITunesResult> => {
-    return fetch(`https://itunes.apple.com/search?term=${name}`).then(
-      (response) => response.json()
-    );
-  };
-  
-  export const getAlbumById = async (
-    id: number | string
-  ): Promise<ITunesResult> => {
-    return fetch(`https://itunes.apple.com/lookup?id=${id}`).then(
-      (response) => response.json()
-    );
-  };
+export interface Item {
+  img_link: string;
+  item_name: string;
+  short_description: string;
+  item_cost: number;
+  item_id: number;
+}
+export interface ItemResult {
+  resultCount: number;
+  results: Item[];
+}
+
+export const getItemsByKey = async (keyWord = ""): Promise<ItemResult> => {
+  return fetch(`https://127.0.0.1:7000/search?request=${keyWord}`).then(
+    (response) => response.json()
+  );
+};
+
+export const getItemById = async (
+  itemId: number | string
+): Promise<ItemResult> => {
+  return fetch(`https://127.0.0.1:7000/${itemId}`).then(
+    (response) => response.json()
+  );
+};
