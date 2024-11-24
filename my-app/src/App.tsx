@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import {AlbumPage} from "./pages/AlbumPage/AlbumPage";
-import {HomePage} from "./pages/HomePage/HomePage";
-import ITunesPage from "./pages/ITunesPage/ITunesPage";
+import { AlbumPage } from "./pages/AlbumPage/AlbumPage";
+import { HomePage } from "./pages/HomePage/HomePage";
+import ItemsPage from "./pages/ItemsPage/ItemsPage";
 import { ROUTES } from "./Routes";
 
 function App() {
@@ -9,8 +9,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path={ROUTES.HOME} index element={<HomePage />} />
-        <Route path={ROUTES.ALBUMS} element={<ITunesPage />} />
-        <Route path={`${ROUTES.ALBUMS}/:id`} element={<AlbumPage />} />
+        <Route path={ROUTES.ITEMS} element={<ItemsPage />} />
+        <Route path={`${ROUTES.ITEMS}/:id`} element={<AlbumPage />} />
       </Routes>
     </BrowserRouter>
   );

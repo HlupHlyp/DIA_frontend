@@ -1,15 +1,16 @@
-import "./ITunesPage.css";
+import "./ItemsPage.css";
 import { FC, useState } from "react";
-import { Col, Row, Spinner } from "react-bootstrap";
+import { Col, Spinner } from "react-bootstrap";
 import { Item, getItemsByKey } from "../../modules/itunesApi";
 import { InputField } from "../../components/InputField/InputField"
 import { BreadCrumbs } from "../../components/BreadCrumbs/BreadCrumbs";
 import { ROUTES, ROUTE_LABELS } from "../../Routes";
 import { ItemCard } from "../../components/MusicCard/ItemCard";
+import { Header } from "../../components/Header/Header";
 import { useNavigate } from "react-router-dom";
 import { SONGS_MOCK } from "../../modules/mock";
 
-const ITunesPage: FC = () => {
+const ItemsPage: FC = () => {
   const [searchValue, setSearchValue] = useState("");
   const [loading, setLoading] = useState(false);
   const [music, setMusic] = useState<Item[]>([]);
@@ -35,12 +36,20 @@ const ITunesPage: FC = () => {
   };
   const handleCardClick = (id: number) => {
     // клик на карточку, переход на страницу альбома
-    navigate(`${ROUTES.ALBUMS}/${id}`);
+    navigate(`${ROUTES.ITEMS}/${id}`);
+  };
+
+  const logoClick = () => {
+    // клик на карточку, переход на страницу альбома
+    navigate(`${ROUTES.HOME}`);
   };
 
   return (
     <div className="space">
-      <BreadCrumbs crumbs={[{ label: ROUTE_LABELS.ALBUMS }]} />
+      <Header
+        onSubmit={logoClick}
+      />
+      <BreadCrumbs crumbs={[{ label: ROUTE_LABELS.ITEMS }]} />
       <InputField
         value={searchValue}
         setValue={(value) => setSearchValue(value)}
@@ -49,9 +58,9 @@ const ITunesPage: FC = () => {
       />
 
       {loading && ( //здесь можно было использовать тернарный оператор, но это усложняет читаемость
-          <div className="loadingBg">
-            <Spinner animation="border" />
-          </div>)
+        <div className="loadingBg">
+          <Spinner animation="border" />
+        </div>)
       }
       {!loading &&
         (!music.length /* Проверка на существование данных */ ? (
@@ -63,6 +72,7 @@ const ITunesPage: FC = () => {
             {music.map((item, index) => (
               <Col key={index}>
                 <ItemCard
+                  ItemDetailedHandler={() => handleCardClick(item.item_id)}
                   {...item}
                 />
               </Col>
@@ -73,4 +83,4 @@ const ITunesPage: FC = () => {
   );
 };
 
-export default ITunesPage;
+export default ItemsPage;

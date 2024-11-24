@@ -1,0 +1,33 @@
+.containerLoading {
+    filter: blur(8px);
+}
+
+.loadingBg {
+    min-width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+@font-face {
+    font-family: 'Graphik';
+    src: local('Graphik Bold'), local('Graphik-Bold'),
+        url('fonts/Graphik-Bold.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+.space {
+    width: 100%;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 90%;
+    min-width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+}

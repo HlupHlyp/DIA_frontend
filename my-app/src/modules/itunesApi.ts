@@ -4,6 +4,8 @@ export interface Item {
   short_description: string;
   item_cost: number;
   item_id: number;
+  long_description: string;
+  specification: string;
 }
 export interface ItemResult {
   resultCount: number;
