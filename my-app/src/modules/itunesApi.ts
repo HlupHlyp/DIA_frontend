@@ -6,6 +6,10 @@ export interface Item {
   item_id: number;
   long_description: string;
   specification: string;
+  item_type: string;
+  item_voltage: number;
+  item_capacity: number;
+  item_power: number;
 }
 export interface ItemResult {
   resultCount: number;
@@ -13,7 +17,7 @@ export interface ItemResult {
 }
 
 export const getItemsByKey = async (keyWord = ""): Promise<ItemResult> => {
-  return fetch(`https://127.0.0.1:7000/search?request=${keyWord}`).then(
+  return fetch(`api/items/?search_request=${keyWord}`).then(
     (response) => response.json()
   );
 };
@@ -21,7 +25,7 @@ export const getItemsByKey = async (keyWord = ""): Promise<ItemResult> => {
 export const getItemById = async (
   itemId: number | string
 ): Promise<ItemResult> => {
-  return fetch(`https://127.0.0.1:7000/${itemId}`).then(
+  return fetch(`api/${itemId}`).then(
     (response) => response.json()
   );
 };

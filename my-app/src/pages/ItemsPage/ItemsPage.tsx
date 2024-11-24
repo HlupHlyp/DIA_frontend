@@ -21,6 +21,10 @@ const ItemsPage: FC = () => {
     setLoading(true);
     getItemsByKey(searchValue)
       .then((response) => {
+        console.log(response);
+        setMusic(
+          response.items
+        );
         setLoading(false);
       })
       .catch(() => { // В случае ошибки используем mock данные, фильтруем по имени
@@ -32,6 +36,7 @@ const ItemsPage: FC = () => {
           )
         );
         setLoading(false);
+        console.log("no response");
       });
   };
   const handleCardClick = (id: number) => {
