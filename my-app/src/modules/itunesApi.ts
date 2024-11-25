@@ -22,10 +22,8 @@ export const getItemsByKey = async (keyWord = ""): Promise<ItemResult> => {
   );
 };
 
-export const getItemById = async (
-  itemId: number | string
-): Promise<ItemResult> => {
-  return fetch(`api/${itemId}`).then(
+export const getItemById = async (itemId: number | string): Promise<ItemResult> => {
+  return fetch(`/api/` + 'items/' + itemId + '/', { method: "GET", credentials: 'include' }).then(
     (response) => response.json()
   );
 };

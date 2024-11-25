@@ -21,7 +21,6 @@ const ItemsPage: FC = () => {
     setLoading(true);
     getItemsByKey(searchValue)
       .then((response) => {
-        console.log(response);
         setMusic(
           response.items
         );

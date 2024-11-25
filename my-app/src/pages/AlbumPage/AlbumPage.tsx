@@ -26,14 +26,17 @@ export const AlbumPage: FC = () => {
   useEffect(() => {
     if (!id) return;
     getItemById(id)
-      .then((response) => setPageDdata(response.results[0]))
+      .then((response) => {
+        setPageDdata(response)
+      })
       .catch(
-        () =>
+        () => {
           setPageDdata(
             SONGS_MOCK.results.find(
               (item) => String(item.item_id) == id
             )
-          ) /* В случае ошибки используем мок данные, фильтруем по ид */
+          )
+        } /* В случае ошибки используем мок данные, фильтруем по ид */
       );
   }, [id]);
 

@@ -12,6 +12,11 @@ export default defineConfig({
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, "/"),
       },
+      "/minio": {
+        target: "http://localhost:9000/solar-energy/",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, "/"),
+      },
     },
   },
   plugins: [react()],
