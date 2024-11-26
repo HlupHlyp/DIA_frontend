@@ -16,3 +16,7 @@
     display: flex;
     margin-bottom: 2vh;
 }
+
+.space {
+    width: 100%;
+}

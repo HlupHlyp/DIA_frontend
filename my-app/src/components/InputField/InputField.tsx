@@ -12,7 +12,7 @@ interface Props {
     placeholder?: string
 }
 
-export const InputField: FC<Props> = ({ value, setValue, onSubmit, loading, placeholder }) => (
+export const InputField: FC<Props> = ({ value, setValue, onSubmit, placeholder }) => (
     <div className="top_line">
         <div className="input_back">
             <input name="search_request" type="text" className="input" value={value} placeholder={placeholder} onClick={onSubmit} onChange={(event => setValue(event.target.value))} /><br></br>

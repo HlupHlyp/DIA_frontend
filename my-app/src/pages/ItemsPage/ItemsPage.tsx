@@ -47,9 +47,7 @@ const ItemsPage: FC = () => {
 
   return (
     <div className="space">
-      <Header
-        onSubmit={logoClick}
-      />
+      <Header />
       <BreadCrumbs crumbs={[{ label: ROUTE_LABELS.ITEMS }]} />
       <InputField
         value={searchValue}
@@ -71,12 +69,10 @@ const ItemsPage: FC = () => {
         ) : (
           <div className="container">
             {music.map((item, index) => (
-              <Col key={index}>
-                <ItemCard
-                  ItemDetailedHandler={() => handleCardClick(item.item_id)}
-                  {...item}
-                />
-              </Col>
+              <ItemCard
+                ItemDetailedHandler={() => handleCardClick(item.item_id)}
+                {...item}
+              />
             ))}
           </div>
         ))}

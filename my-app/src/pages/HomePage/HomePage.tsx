@@ -23,11 +23,7 @@ export const HomePage: FC = () => {
 
   return (
     <Col md={6} className="space">
-      <div >
-        <Header
-          onSubmit={logoClick}
-        />
-      </div>
+      <Header />
       < div className="home_back" >
         <img src={HomeBack} className="home_image" />
         <div className="home_title">

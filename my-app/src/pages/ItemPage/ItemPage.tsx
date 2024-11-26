@@ -41,9 +41,7 @@ export const ItemPage: FC = () => {
 
   return (
     <div className="space">
-      <Header
-        onSubmit={logoClick}
-      />
+      <Header />
       <BreadCrumbs
         crumbs={[
           { label: ROUTE_LABELS.ITEMS, path: ROUTES.ITEMS },
@@ -53,7 +51,7 @@ export const ItemPage: FC = () => {
       {pageData ? ( // проверка на наличие данных, иначе загрузка
         <div className="space">
           <div className="item_page_container">
-            <img src={pageData.img_link || DefaultImage} className="item_page_half" />
+            <img src={"/minio/" + pageData.img_link || DefaultImage} className="item_page_half" />
             <div className="item_page_half">
               <div className="item_page_title">{pageData.item_name}</div>
               <div className="item_page_cost">{pageData.item_cost} р.</div>
