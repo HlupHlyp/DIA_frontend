@@ -1,17 +1,16 @@
-import "./AlbumPage.css";
+import "./ItemPage.css";
 import { FC, useEffect, useState } from "react";
 import { BreadCrumbs } from "../../components/BreadCrumbs/BreadCrumbs";
 import { ROUTES, ROUTE_LABELS } from "../../Routes";
 import { useParams } from "react-router-dom";
-import { Item, getItemById } from "../../modules/itunesApi";
+import { Item, getItemById } from "../../modules/ItemsApi";
 import { Spinner } from "react-bootstrap";
-//import { ALBUMS_MOCK } from "../../modules/mock";
 import DefaultImage from "../../assets/DefaultImage.jpg";
-import { SONGS_MOCK } from "../../modules/mock";
+import { ITEMS_MOCK } from "../../modules/mock";
 import { Header } from "../../components/Header/Header";
 import { useNavigate } from "react-router-dom";
 
-export const AlbumPage: FC = () => {
+export const ItemPage: FC = () => {
   const [pageData, setPageDdata] = useState<Item>();
 
   const { id } = useParams(); // ид страницы, пример: "/albums/12"
@@ -32,7 +31,7 @@ export const AlbumPage: FC = () => {
       .catch(
         () => {
           setPageDdata(
-            SONGS_MOCK.results.find(
+            ITEMS_MOCK.results.find(
               (item) => String(item.item_id) == id
             )
           )

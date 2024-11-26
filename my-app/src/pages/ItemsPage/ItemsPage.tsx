@@ -1,14 +1,14 @@
 import "./ItemsPage.css";
 import { FC, useState } from "react";
 import { Col, Spinner } from "react-bootstrap";
-import { Item, getItemsByKey } from "../../modules/itunesApi";
+import { Item, getItemsByKey } from "../../modules/ItemsApi";
 import { InputField } from "../../components/InputField/InputField"
 import { BreadCrumbs } from "../../components/BreadCrumbs/BreadCrumbs";
 import { ROUTES, ROUTE_LABELS } from "../../Routes";
-import { ItemCard } from "../../components/MusicCard/ItemCard";
+import { ItemCard } from "../../components/ItemCard/ItemCard";
 import { Header } from "../../components/Header/Header";
 import { useNavigate } from "react-router-dom";
-import { SONGS_MOCK } from "../../modules/mock";
+import { ITEMS_MOCK } from "../../modules/mock";
 
 const ItemsPage: FC = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -28,14 +28,11 @@ const ItemsPage: FC = () => {
       })
       .catch(() => { // В случае ошибки используем mock данные, фильтруем по имени
         setMusic(
-          SONGS_MOCK.results.filter((item) =>
-            item.item_name
-              .toLocaleLowerCase()
-              .startsWith(searchValue.toLocaleLowerCase())
+          ITEMS_MOCK.results.filter((item) =>
+            (item.item_name + item.short_description + item.long_description + item.specification).toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())
           )
         );
         setLoading(false);
-        console.log("no response");
       });
   };
   const handleCardClick = (id: number) => {

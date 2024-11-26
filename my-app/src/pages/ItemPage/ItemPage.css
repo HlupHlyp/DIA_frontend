@@ -1,0 +1,79 @@
+.album_page_loader_block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+@font-face {
+  font-family: 'Graphik';
+  src: local('Graphik Bold'), local('Graphik-Bold'),
+    url('fonts/Graphik-Bold.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+.space {
+  width: 100%;
+}
+
+.item_page_container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 1200px;
+  box-sizing: content-box;
+  display: flex;
+  margin-top: 3vh;
+}
+
+.item_page_half {
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 100%;
+  display: inline;
+  max-width: 560px;
+}
+
+.item_page_title {
+  margin-bottom: 18px;
+  box-sizing: content-box;
+  text-align: left;
+  font-family: 'Arial';
+  font-size: 24px;
+  color: #46735b;
+  font-weight: 600;
+}
+
+.item_page_cost {
+  box-sizing: content-box;
+  text-align: left;
+  font-family: 'Arial';
+  font-size: 20px;
+  line-height: 1.35;
+  color: #46735b;
+  font-weight: 600;
+}
+
+.item_page_description {
+  margin-top: 20px;
+  font-family: 'Arial';
+  font-weight: 400;
+  color: #1c808a;
+  font-size: 14px;
+  line-height: 1.55;
+  box-sizing: content-box;
+  text-align: left;
+}
+
+.item_specification {
+  margin-top: 20px;
+  font-family: 'Arial';
+  font-weight: 400;
+  color: #1c808a;
+  font-size: 14px;
+  line-height: 1.55;
+  box-sizing: content-box;
+  text-align: left;
+  white-space: pre-line;
+}

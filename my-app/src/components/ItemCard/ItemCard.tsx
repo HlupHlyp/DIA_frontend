@@ -1,5 +1,4 @@
 import { FC } from "react";
-import { Button, Card } from "react-bootstrap";
 import "./ItemCard.css";
 import default_img from "../../assets/DefaultImage.jpg";
 

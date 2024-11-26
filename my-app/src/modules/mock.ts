@@ -1,6 +1,6 @@
-import { ItemResult } from "./itunesApi.ts";
+import { ItemResult } from "./ItemsApi.ts";
 
-export const SONGS_MOCK: ItemResult = {
+export const ITEMS_MOCK: ItemResult = {
     resultCount: 3,
     results: [
         {
