@@ -1,6 +1,6 @@
 import "./ItemsPage.css";
 import { FC, useState } from "react";
-import { Col, Spinner } from "react-bootstrap";
+import { Spinner } from "react-bootstrap";
 import { Item, getItemsByKey } from "../../modules/ItemsApi";
 import { InputField } from "../../components/InputField/InputField"
 import { BreadCrumbs } from "../../components/BreadCrumbs/BreadCrumbs";
@@ -40,11 +40,6 @@ const ItemsPage: FC = () => {
     navigate(`${ROUTES.ITEMS}/${id}`);
   };
 
-  const logoClick = () => {
-    // клик на карточку, переход на страницу альбома
-    navigate(`${ROUTES.HOME}`);
-  };
-
   return (
     <div className="space">
       <Header />
@@ -68,7 +63,7 @@ const ItemsPage: FC = () => {
           </div>
         ) : (
           <div className="container">
-            {music.map((item, index) => (
+            {music.map((item) => (
               <ItemCard
                 ItemDetailedHandler={() => handleCardClick(item.item_id)}
                 {...item}

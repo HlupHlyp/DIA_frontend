@@ -1,5 +1,4 @@
-import { FC } from "react";
-import React, { Component, ReactNode } from 'react';
+import { Component } from 'react';
 import "./ItemCard.css";
 import default_img from "../../assets/DefaultImage.jpg";
 
@@ -12,43 +11,26 @@ interface ICardProps {
   ItemDetailedHandler: () => void;
 }
 
-interface ICardState { }
-
 type Props = Readonly<ICardProps>;
-type State = Readonly<ICardState>;
 
-export class ItemCard extends Component<Props, State> {
+export class ItemCard extends Component<Props> {
   constructor(props: Props) {
     super(props)
   }
   render() {
     return (
-      <div>
-        <h1>Code goes here</h1>
+      <div className="plant_req">
+        <img src={this.props.img_link || default_img} className="image" />
+        <div className="info">
+          <div className="title">{this.props.item_name}</div>
+          <div className="short-description">{this.props.short_description.replaceAll('!', '\n')}</div>
+          <div className="cost" >{this.props.item_cost} р.</div>
+        </div>
+        <div className="down">
+          <a onClick={this.props.ItemDetailedHandler} className="descript-button">ПОДРОБНЕЕ</a>
+        </div>
       </div>
-    )
+    );
   }
 }
 
-/*export const ItemCard: FC<ICardProps> = ({
-  img_link,
-  item_name,
-  short_description,
-  item_cost,
-  ItemDetailedHandler,
-}) => {
-  return (
-    <div className="plant_req">
-      <img src={img_link || default_img} className="image" />
-      <div className="info">
-        <div className="title">{item_name}</div>
-        <div className="short-description">{short_description.replaceAll('!', '\n')}</div>
-        <div className="cost" >{item_cost} р.</div>
-      </div>
-      <div className="down">
-        <a onClick={ItemDetailedHandler} className="descript-button">ПОДРОБНЕЕ</a>
-      </div>
-    </div>
-  );
-};
-*/
