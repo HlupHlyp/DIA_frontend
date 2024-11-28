@@ -1,4 +1,5 @@
 import { FC } from "react";
+import React, { Component, ReactNode } from 'react';
 import "./ItemCard.css";
 import default_img from "../../assets/DefaultImage.jpg";
 
@@ -11,7 +12,25 @@ interface ICardProps {
   ItemDetailedHandler: () => void;
 }
 
-export const ItemCard: FC<ICardProps> = ({
+interface ICardState { }
+
+type Props = Readonly<ICardProps>;
+type State = Readonly<ICardState>;
+
+export class ItemCard extends Component<Props, State> {
+  constructor(props: Props) {
+    super(props)
+  }
+  render() {
+    return (
+      <div>
+        <h1>Code goes here</h1>
+      </div>
+    )
+  }
+}
+
+/*export const ItemCard: FC<ICardProps> = ({
   img_link,
   item_name,
   short_description,
@@ -32,3 +51,4 @@ export const ItemCard: FC<ICardProps> = ({
     </div>
   );
 };
+*/
