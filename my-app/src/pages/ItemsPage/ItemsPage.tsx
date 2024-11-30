@@ -9,6 +9,7 @@ import { ItemCard } from "../../components/ItemCard/ItemCard";
 import { Header } from "../../components/Header/Header";
 import { useNavigate } from "react-router-dom";
 import { ITEMS_MOCK } from "../../modules/mock";
+import ItemPage from "../ItemPage/ItemPage";
 
 const ItemsPage: FC = () => {
   const [searchValue, setSearchValue] = useState("");
