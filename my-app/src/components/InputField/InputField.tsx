@@ -6,7 +6,6 @@ interface InputProps {
     value: string;
     setValue: (value: string) => void;
     onSubmit: () => void;
-    loading?: boolean;
     placeholder?: string;
 }
 

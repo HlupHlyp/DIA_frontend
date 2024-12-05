@@ -1,5 +1,5 @@
 import "./ItemPage.css";
-import { Component, useEffect, useState } from "react";
+import { Component } from "react";
 import { BreadCrumbs } from "../../components/BreadCrumbs/BreadCrumbs";
 import { ROUTES, ROUTE_LABELS } from "../../Routes";
 import { useParams } from "react-router-dom";
@@ -8,7 +8,6 @@ import { Spinner } from "react-bootstrap";
 import DefaultImage from "../../assets/DefaultImage.jpg";
 import { ITEMS_MOCK } from "../../modules/mock";
 import { Header } from "../../components/Header/Header";
-import { withRouter } from "react-router-dom";
 
 interface IPageState {
   pageData: null | Item;
@@ -37,15 +36,18 @@ export class ItemPageClass extends Component<Props, State> {
     pageData: null,
   };
 
+  setPageData(pageData: null | Item) {
+    this.setState({ pageData: pageData })
+  };
+
   componentDidMount?() {
     const { id } = this.props
-    console.log("componentDidMount");
     if (id) {
       console.log("Id exists");
       getItemById(id)
         .then((response) => {
           //console.log(response)
-          this.setState({ pageData: response })
+          this.setPageData(response)
           console.log(this.state.pageData)
         })
         .catch(
@@ -53,9 +55,7 @@ export class ItemPageClass extends Component<Props, State> {
             const item = ITEMS_MOCK.results.find(
               (item) => String(item.item_id) == String(id)
             )
-            this.setState({
-              pageData: item,
-            })
+            this.setPageData(response)
           } /* В случае ошибки используем мок данные, фильтруем по ид */
         );
     }

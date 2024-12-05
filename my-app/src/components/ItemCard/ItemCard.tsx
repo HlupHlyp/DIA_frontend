@@ -8,10 +8,10 @@ interface ICardProps {
   short_description: string;
   item_cost: number;
   item_id: number;
-  ItemDetailedHandler: () => void;
+  ItemDetailed: string;
 }
 
-type Props = Readonly<ICardProps>;
+type Props = ICardProps;
 
 export class ItemCard extends Component<Props> {
   constructor(props: Props) {
@@ -27,7 +27,7 @@ export class ItemCard extends Component<Props> {
           <div className="cost" >{this.props.item_cost} р.</div>
         </div>
         <div className="down">
-          <a onClick={this.props.ItemDetailedHandler} className="descript-button">ПОДРОБНЕЕ</a>
+          <a href={this.props.ItemDetailed} className="descript-button">ПОДРОБНЕЕ</a>
         </div>
       </div>
     );
