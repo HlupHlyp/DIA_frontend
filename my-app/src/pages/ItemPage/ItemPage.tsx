@@ -8,19 +8,11 @@ import { Spinner } from "react-bootstrap";
 import DefaultImage from "../../assets/DefaultImage.jpg";
 import { ITEMS_MOCK } from "../../modules/mock";
 import { Header } from "../../components/Header/Header";
-import { useNavigate } from "react-router-dom";
 
 export const ItemPage: FC = () => {
   const [pageData, setPageDdata] = useState<Item>();
 
   const { id } = useParams(); // ид страницы, пример: "/albums/12"
-
-  const navigate = useNavigate();
-
-  const logoClick = () => {
-    // клик на карточку, переход на страницу альбома
-    navigate(`${ROUTES.HOME}`);
-  };
 
   useEffect(() => {
     if (!id) return;

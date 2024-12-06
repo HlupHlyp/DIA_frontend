@@ -1,6 +1,6 @@
 import "./ItemsPage.css";
-import { FC, useState } from "react";
-import { Col, Spinner } from "react-bootstrap";
+import { useEffect, FC, useState } from "react";
+import { Spinner } from "react-bootstrap";
 import { Item, getItemsByKey } from "../../modules/ItemsApi";
 import { InputField } from "../../components/InputField/InputField"
 import { BreadCrumbs } from "../../components/BreadCrumbs/BreadCrumbs";
@@ -13,7 +13,7 @@ import { ITEMS_MOCK } from "../../modules/mock";
 const ItemsPage: FC = () => {
   const [searchValue, setSearchValue] = useState("");
   const [loading, setLoading] = useState(false);
-  const [music, setMusic] = useState<Item[]>([]);
+  const [items, setItems] = useState<Item[]>([]);
 
   const navigate = useNavigate();
 
@@ -21,13 +21,13 @@ const ItemsPage: FC = () => {
     setLoading(true);
     getItemsByKey(searchValue)
       .then((response) => {
-        setMusic(
+        setItems(
           response.items
         );
         setLoading(false);
       })
       .catch(() => { // В случае ошибки используем mock данные, фильтруем по имени
-        setMusic(
+        setItems(
           ITEMS_MOCK.results.filter((item) =>
             (item.item_name + item.short_description + item.long_description + item.specification).toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())
           )
@@ -40,10 +40,9 @@ const ItemsPage: FC = () => {
     navigate(`${ROUTES.ITEMS}/${id}`);
   };
 
-  const logoClick = () => {
-    // клик на карточку, переход на страницу альбома
-    navigate(`${ROUTES.HOME}`);
-  };
+  useEffect(() => {
+    handleSearch();
+  }, []);
 
   return (
     <div className="space">
@@ -62,13 +61,13 @@ const ItemsPage: FC = () => {
         </div>)
       }
       {!loading &&
-        (!music.length /* Проверка на существование данных */ ? (
+        (!items.length /* Проверка на существование данных */ ? (
           <div>
             <h1>К сожалению, пока ничего не найдено :(</h1>
           </div>
         ) : (
           <div className="container">
-            {music.map((item, index) => (
+            {items.map((item) => (
               <ItemCard
                 ItemDetailedHandler={() => handleCardClick(item.item_id)}
                 {...item}
