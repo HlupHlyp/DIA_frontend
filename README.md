@@ -16,7 +16,7 @@ $$η={P_{c}[Вт]\over{1000[{Вт\overм^2}]\cdot S[м^2]}}$$
 
 Для получения средней энергии суточной энергии E[Вт*ч], производимой набором из n одинаковых солнечных батарей, остается перемножить P, η и n:
 
-$P*η*n$={{(I_1+I_2)\cdot10^6\cdotP_{c}\cdotS\cdotn}\over{2\cdot182\cdot24\cdot3600\cdot1000\cdotS}}
+$${P\cdotη\cdotn}={{(I_1+I_2)\cdot10^6\cdotP_{c}\cdotS\cdotn}\over{2\cdot182\cdot24\cdot3600\cdot1000\cdotS}}={(I_1+I_2)\cdotP_п\cdotn\over31449,6}$$
 
 
 
