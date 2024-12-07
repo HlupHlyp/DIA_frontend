@@ -23,7 +23,7 @@ $$η_{i}={P_{пi}[Вт]\over{1000[{Вт\overм^2}]\cdot S[м^2]}}$$
 
 Для получения средней суточной генерации E[Вт*ч] просуммируем энергии, производимые k наборомами из $n_{i}$ одинаковых солнечных батарей, которые являются ничем иным как премножением P, $η_{i}$ и $n_{i}$:
 
-$$E=\sum_{i=1}^k E_{i}^2={\sum_{i=1}^k P\cdotη_{i}\cdot n_{i}}= \sum_{i=1}^k{{I\cdot10^6\cdot P_{c}\cdot S\cdot n}\over{cdot182\cdot24\cdot3600\cdot1000\cdot S}}={I\cdot P_п\cdot n\over15724,8}$$
+$$E=\sum_{i=1}^k E_{i}^2={\sum_{i=1}^k P\cdotη_{i}\cdot n_{i}}= \sum_{i=1}^k{{I\cdot10^6\cdot P_{c}\cdot S\cdot n}\over{cdot182\cdot24\cdot3600\cdot1000\cdot S}}=\sum_{i=1}^k{I\cdot P_п\cdot n\over15724,8}$$
 
 
 
