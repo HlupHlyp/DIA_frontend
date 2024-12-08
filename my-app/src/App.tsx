@@ -6,7 +6,7 @@ import { ROUTES } from "./Routes";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/solar_plant_calc_front">
       <Routes>
         <Route path={ROUTES.HOME} index element={<HomePage />} />
         <Route path={ROUTES.ITEMS} element={<ItemsPage />} />
