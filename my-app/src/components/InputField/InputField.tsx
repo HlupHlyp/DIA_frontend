@@ -1,8 +1,6 @@
 import { FC } from 'react'
-import { Button } from 'react-bootstrap'
 import './InputField.css'
 import card_img from "../../assets/card.png";
-import { Card } from "react-bootstrap";
 
 interface Props {
     value: string

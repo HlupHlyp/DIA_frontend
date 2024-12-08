@@ -1,9 +1,8 @@
 import "./HomePage.css";
 import { FC } from "react";
-import { Link } from "react-router-dom";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { ROUTES, ROUTE_LABELS } from "../../Routes";
+import { ROUTES } from "../../Routes";
 import { Header } from "../../components/Header/Header";
 import HomeBack from "../../assets/HomePageBack.jpg";
 
@@ -11,10 +10,10 @@ import HomeBack from "../../assets/HomePageBack.jpg";
 export const HomePage: FC = () => {
   const navigate = useNavigate();
 
-  const logoClick = () => {
+  /*const logoClick = () => {
     // клик на карточку, переход на страницу альбома
     navigate(`${ROUTES.HOME}`);
-  };
+  };*/
 
   const handleClick = () => {
     // клик на карточку, переход на страницу альбома
