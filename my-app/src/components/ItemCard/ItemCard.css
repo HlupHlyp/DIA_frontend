@@ -1,0 +1,95 @@
+@font-face {
+    font-family: 'Graphik';
+    src: local('Graphik Bold'), local('Graphik-Bold'),
+        url('fonts/Graphik-Bold.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+.plant_req {
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: content-box;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    margin: auto;
+    box-sizing: content-box;
+}
+
+.title {
+    color: #46735b;
+    font-size: 17px;
+    font-family: 'Arial';
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.short-description {
+    font-size: 13px;
+    font-weight: 400;
+    width: 100%;
+    color: #0d776e;
+    font-family: 'Arial';
+    margin-top: 8px;
+    line-height: 1.55;
+    white-space: pre-line;
+}
+
+.info {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 36px;
+    padding-bottom: 36px;
+}
+
+.descript-button,
+.add2plant_button {
+    display: flex;
+    padding-left: 5px;
+    padding-right: 5px;
+    height: 40px;
+    color: #ffffff;
+    background-color: #1c808a;
+    border: 2px solid #1c808a;
+    text-align: center;
+    line-height: 40px;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: 'Arial';
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+    justify-content: center;
+}
+
+.add2plant_button {
+    width: 100%;
+    background-color: #ffffff;
+    color: #1c808a;
+    cursor: pointer;
+}
+
+.down {
+    align-items: center;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 21px;
+    display: grid;
+    gap: 20px;
+}
+
+.cost {
+    font-size: 30px;
+    color: #46735b;
+    font-weight: 600;
+    line-height: 1.35;
+    margin-top: 12px;
+    font-family: 'Arial';
+}

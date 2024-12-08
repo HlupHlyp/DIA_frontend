@@ -1,0 +1,53 @@
+.album_page_loader_block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 90%;
+    min-width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@font-face {
+    font-family: 'Graphik';
+    src: local('Graphik Bold'), local('Graphik-Bold'),
+        url('fonts/Graphik-Bold.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+.space {
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.home_back {
+    align-items: center;
+    align-content: center;
+}
+
+.home_title {
+    width: 100%;
+    padding-bottom: 2vh;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.home_image {
+    width: 98vw;
+    max-height: 64vh;
+    object-fit: contain;
+    margin: auto;
+    box-sizing: content-box;
+    object-fit: fill;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    margin-bottom: 2vh;
+}
