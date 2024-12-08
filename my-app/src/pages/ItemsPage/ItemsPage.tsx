@@ -20,12 +20,9 @@ const ItemsPage: FC = () => {
   const handleSearch = () => {
     setLoading(true);
     getItemsByKey(searchValue)
-      .then((/*response*/) => {
+      .then((response) => {
         setItems(
-          /*response.items*/
-          ITEMS_MOCK.results.filter((item) =>
-            (item.item_name + item.short_description + item.long_description + item.specification).toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())
-          )
+          response.items
         );
         setLoading(false);
       })
