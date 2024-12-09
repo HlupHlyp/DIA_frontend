@@ -28,7 +28,7 @@ export const HomePage: FC = () => {
         <div className="home_title">
           <h1>Sun StaGeS</h1>
           <div>Добро пожаловать в Sun Station Generation&Saving!</div>
-          <div style={{ fontSize: "13px", fontWeight: "500", fontFamily: "Arial" }}>Здесь вы можете провести расчет генерации и сбережения планируемой вами солнечной станции,</div>
+          <div>Здесь вы можете провести расчет генерации и сбережения планируемой вами солнечной станции,</div>
           <div>а также ее примерную стоимость.</div>
           <div className="descript-button" onClick={handleClick} style={{ marginTop: "20px" }}>Посмотреть доступные элементы</div>
         </div>

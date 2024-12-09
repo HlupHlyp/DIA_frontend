@@ -77,3 +77,23 @@
   text-align: left;
   white-space: pre-line;
 }
+
+@media (max-width: 460px) {
+  .item_page_container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: content-box;
+    display: flex;
+    margin-top: 3vh;
+    flex-direction: column;
+  }
+
+  .item_page_half {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    display: inline;
+  }
+}

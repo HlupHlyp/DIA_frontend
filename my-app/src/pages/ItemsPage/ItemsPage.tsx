@@ -9,17 +9,21 @@ import { ItemCard } from "../../components/ItemCard/ItemCard";
 import { Header } from "../../components/Header/Header";
 import { useNavigate } from "react-router-dom";
 import { ITEMS_MOCK } from "../../modules/mock";
+import { useSearch, setSearchAction } from '../../slices/searchSlice'
+import { useDispatch } from "react-redux"
 
 const ItemsPage: FC = () => {
-  const [searchValue, setSearchValue] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [items, setItems] = useState<Item[]>([]);
+  const dispatch = useDispatch()
+  const search = useSearch()
+  //const [searchValue, setSearchValue] = useState("");
+  const [loading, setLoading] = useState(false)
+  const [items, setItems] = useState<Item[]>([])
 
   const navigate = useNavigate();
 
   const handleSearch = () => {
     setLoading(true);
-    getItemsByKey(searchValue)
+    getItemsByKey(search)
       .then((response) => {
         setItems(
           response.items
@@ -29,7 +33,7 @@ const ItemsPage: FC = () => {
       .catch(() => { // В случае ошибки используем mock данные, фильтруем по имени
         setItems(
           ITEMS_MOCK.results.filter((item) =>
-            (item.item_name + item.short_description + item.long_description + item.specification).toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())
+            (item.item_name + item.short_description + item.long_description + item.specification).toLocaleLowerCase().includes(search.toLocaleLowerCase())
           )
         );
         setLoading(false);
@@ -49,8 +53,8 @@ const ItemsPage: FC = () => {
       <Header />
       <BreadCrumbs crumbs={[{ label: ROUTE_LABELS.ITEMS }]} />
       <InputField
-        value={searchValue}
-        setValue={(value) => setSearchValue(value)}
+        value={search}
+        setValue={(value) => (dispatch(setSearchAction(value)))}
         loading={loading}
         onSubmit={handleSearch}
       />
