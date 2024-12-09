@@ -24,7 +24,7 @@ const ItemsPage: FC = () => {
   const handleSearch = () => {
     setLoading(true);
     getItemsByKey(search)
-      .then((response) => {
+      .then((response: any) => {
         setItems(
           response.items
         );

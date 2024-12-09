@@ -17,7 +17,7 @@ export const ItemPage: FC = () => {
   useEffect(() => {
     if (!id) return;
     getItemById(id)
-      .then((/*response*/) => {
+      .then((response: any) => {
         setPageDdata(response)
       })
       .catch(

@@ -8,7 +8,7 @@ import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/solar_plant_calc_front",
+  //base: "/solar_plant_calc_front",
   server: {
     https: {
       key: fs.readFileSync(path.resolve(__dirname, 'cert.key')),
