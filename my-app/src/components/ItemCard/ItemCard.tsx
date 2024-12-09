@@ -23,7 +23,7 @@ export const ItemCard: FC<ICardProps> = ({
       <img src={img_link || default_img} className="image" />
       <div className="info">
         <div className="title">{item_name}</div>
-        <div className="short-description">{short_description/*.replaceAll('!', '\n')*/}</div>
+        <div className="short-description">{short_description.replaceAll('!', '\n')}</div>
         <div className="cost" >{item_cost} р.</div>
       </div>
       <div className="down">

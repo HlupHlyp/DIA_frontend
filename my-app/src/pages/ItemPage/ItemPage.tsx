@@ -18,11 +18,7 @@ export const ItemPage: FC = () => {
     if (!id) return;
     getItemById(id)
       .then((/*response*/) => {
-        setPageDdata(/*response*/
-          ITEMS_MOCK.results.find(
-            (item) => String(item.item_id) == id
-          )
-        )
+        setPageDdata(response)
       })
       .catch(
         () => {
@@ -56,7 +52,7 @@ export const ItemPage: FC = () => {
                 <div>
                   {pageData.long_description}
                 </div>
-                <div className="item_specification">{pageData.specification/*.replaceAll('!', '\n')*/}</div>
+                <div className="item_specification">{pageData.specification.replaceAll('!', '\n')}</div>
               </div>
             </div>
           </div>
