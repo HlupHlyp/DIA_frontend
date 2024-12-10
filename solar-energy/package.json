@@ -1,7 +1,7 @@
 {
   "name": "solar-energy",
   "private": true,
-  "version": "0.10.0",
+  "version": "0.0.0",
   "type": "module",
   "homepage": "https://hluphlyp.github.io/solar_plant_calc",
   "scripts": {
