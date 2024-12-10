@@ -5,29 +5,24 @@ import { VitePWA } from 'vite-plugin-pwa'
 import mkcert from 'vite-plugin-mkcert'
 import fs from 'fs';
 import path from 'path';
-import { api_proxy_addr, img_proxy_addr, dest_root } from "./target_config"
 
+// https://vitejs.dev/config/
 export default defineConfig({
-  clearScreen: false,
-  base: dest_root,
-  preview: {
+  //base: "/solar_plant_calc_front",
+  server: {
     https: {
       key: fs.readFileSync(path.resolve(__dirname, 'cert.key')),
       cert: fs.readFileSync(path.resolve(__dirname, 'cert.crt')),
     },
-    port: 443,
-  },
-  server: {
-    host: true,
     port: 3000,
     proxy: {
       "/api": {
-        target: api_proxy_addr,
+        target: "http://localhost:7000",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, "/"),
       },
       "/minio": {
-        target: img_proxy_addr,
+        target: "http://localhost:9000/solar-energy/",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/minio/, "/"),
       },
@@ -58,16 +53,4 @@ export default defineConfig({
       ],
     }
   })],
-  envPrefix: ['VITE_', 'TAURI_ENV_*'],
-  build: {
-    // Tauri uses Chromium on Windows and WebKit on macOS and Linux
-    target:
-      process.env.TAURI_ENV_PLATFORM == 'windows'
-        ? 'chrome105'
-        : 'safari13',
-    // don't minify for debug builds
-    minify: !process.env.TAURI_ENV_DEBUG ? 'esbuild' : false,
-    // produce sourcemaps for debug builds
-    sourcemap: !!process.env.TAURI_ENV_DEBUG,
-  },
 })

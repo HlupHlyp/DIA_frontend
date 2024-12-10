@@ -1,7 +1,6 @@
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import LogoImage from "../../assets/Logo.jpg";
-import { ROUTES } from "../../Routes";
 import './Header.css';
 import { FC } from 'react';
 
@@ -13,8 +12,8 @@ export const Header: FC = () => (
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav" className="collapse">
                     <Nav className="me-auto">
-                        <Nav.Link href={ROUTES.HOME}>Главная</Nav.Link>
-                        <Nav.Link href={ROUTES.ITEMS}>Элементы</Nav.Link>
+                        <Nav.Link href=/*"/solar_plant_calc_front/"*/"/">Главная</Nav.Link>
+                        <Nav.Link href=/*"/solar_plant_calc_front/items"*/"/items">Элементы</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </div>

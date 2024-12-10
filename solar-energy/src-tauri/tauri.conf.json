@@ -3,19 +3,13 @@
   "productName": "solar-energy",
   "version": "0.1.0",
   "identifier": "com.firGen.solarEnergy",
-  "plugins": {
-    "http": {
-      "enabled": true
-    }
-  },
   "build": {
     "frontendDist": "../dist",
-    "devUrl": "https://192.168.56.1:3000",
+    "devUrl": "https://localhost:3000",
     "beforeDevCommand": "npm run dev",
     "beforeBuildCommand": "npm run build"
   },
   "app": {
-    "withGlobalTauri": true,
     "windows": [
       {
         "title": "solar-energy",
