@@ -8,6 +8,7 @@ import { Spinner } from "react-bootstrap";
 import DefaultImage from "../../assets/DefaultImage.jpg";
 import { ITEMS_MOCK } from "../../modules/mock";
 import { Header } from "../../components/Header/Header";
+//import { dest_img } from "../../../target_config"
 
 export const ItemPage: FC = () => {
   const [pageData, setPageDdata] = useState<Item>();

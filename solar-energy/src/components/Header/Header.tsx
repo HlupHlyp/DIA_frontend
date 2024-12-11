@@ -3,6 +3,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import LogoImage from "../../assets/Logo.jpg";
 import './Header.css';
 import { FC } from 'react';
+import { ROUTES } from "../../Routes";
+import { dest_root } from "../../../target_config";
 
 export const Header: FC = () => (
     <Navbar expand="lg" className="header" style={{ justifyContent: "end", marginBottom: "2vh", paddingTop: "4vh", backgroundColor: "rgb(255, 255, 255)" }}>
@@ -11,9 +13,9 @@ export const Header: FC = () => (
             <div className="routes">
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav" className="collapse">
-                    <Nav className="me-auto">
-                        <Nav.Link href=/*"/solar_plant_calc_front/"*/"/">Главная</Nav.Link>
-                        <Nav.Link href=/*"/solar_plant_calc_front/items"*/"/items">Элементы</Nav.Link>
+                    <Nav className="me-auto" >
+                        <Nav.Link href={dest_root + ROUTES.HOME}>Главная</Nav.Link>
+                        <Nav.Link href={dest_root + ROUTES.ITEMS}>Элементы</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </div>

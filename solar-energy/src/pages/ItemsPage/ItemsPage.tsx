@@ -31,6 +31,7 @@ const ItemsPage: FC = () => {
         setLoading(false);
       })
       .catch(() => { // В случае ошибки используем mock данные, фильтруем по имени
+
         setItems(
           ITEMS_MOCK.results.filter((item) =>
             (item.item_name + item.short_description + item.long_description + item.specification).toLocaleLowerCase().includes(search.toLocaleLowerCase())

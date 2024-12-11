@@ -5,6 +5,7 @@ import ItemsPage from "./pages/ItemsPage/ItemsPage";
 import { ROUTES } from "./Routes";
 import { useEffect } from "react";
 import { invoke } from "@tauri-apps/api/core";
+import { dest_root } from "../target_config";
 
 //const { invoke } = (window as any).tauri;
 
@@ -21,7 +22,7 @@ function App() {
 
   }, []);
   return (
-    <BrowserRouter /*basename="/solar_plant_calc_front"*/>
+    <BrowserRouter basename={dest_root}>
       <Routes>
         <Route path={ROUTES.HOME} index element={<HomePage />} />
         <Route path={ROUTES.ITEMS} element={<ItemsPage />} />
