@@ -22,7 +22,7 @@ export const ItemCard: FC<ICardProps> = ({
 
   return (
     <div className="plant_req">
-      <img src={dest_img + img_link.replaceAll("minio", "solar-energy") || default_img} className="image" />
+      <img src={img_link ? (dest_img + img_link.replaceAll("minio", "solar-energy")) : default_img} className="image" />
       <div className="info">
         <div className="title">{item_name}</div>
         <div className="short-description">{short_description.replaceAll('!', '\n')}</div>

@@ -8,6 +8,7 @@ import { Spinner } from "react-bootstrap";
 import DefaultImage from "../../assets/DefaultImage.jpg";
 import { ITEMS_MOCK } from "../../modules/mock";
 import { Header } from "../../components/Header/Header";
+import { dest_img } from "../../../target_config";
 //import { dest_img } from "../../../target_config"
 
 export const ItemPage: FC = () => {
@@ -44,7 +45,7 @@ export const ItemPage: FC = () => {
       {pageData ? ( // проверка на наличие данных, иначе загрузка
         <div className="space">
           <div className="item_page_container">
-            <img src={pageData.img_link || DefaultImage} className="item_page_half" />
+            <img src={pageData.img_link ? (dest_img + pageData.img_link.replaceAll("minio", "solar-energy")) : DefaultImage} className="item_page_half" />
             <div className="item_page_half">
               <div className="item_page_title">{pageData.item_name}</div>
               <div className="item_page_cost">{pageData.item_cost} р.</div>

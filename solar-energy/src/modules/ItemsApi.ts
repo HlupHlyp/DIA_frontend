@@ -19,14 +19,13 @@ export interface ItemResult {
 }
 
 export const getItemsByKey = async (keyWord = ""): Promise<ItemResult> => {
-  console.log(`${dest_api}/items/?search_request=${keyWord}`)
-  return fetch(`${dest_api}/items/?search_request=${keyWord}`).then(
+  return fetch(`api/items/?search_request=${keyWord}`).then(
     (response) => response.json()
   );
 };
 
 export const getItemById = async (itemId: number | string): Promise<ItemResult> => {
-  return fetch(dest_api + '/items/' + itemId + '/', { method: "GET", credentials: 'include' }).then(
+  return fetch('/api' + '/items/' + itemId + '/', { method: "GET", credentials: 'include' }).then(
     (response) => response.json()
   );
 };
