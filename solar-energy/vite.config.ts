@@ -2,9 +2,9 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
-import mkcert from 'vite-plugin-mkcert'
-import fs from 'fs';
-import path from 'path';
+//import mkcert from 'vite-plugin-mkcert'
+//import fs from 'fs';
+//import path from 'path';
 import { /*api_proxy_addr, img_proxy_addr,*/ api_proxy_addr, dest_root, img_proxy_addr } from "./target_config"
 
 // https://vitejs.dev/config/
