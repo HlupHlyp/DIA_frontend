@@ -97,7 +97,7 @@
     font-family: 'Arial';
 }
 
-@media (max-width: 460px) {
+@media (max-width: 480px) {
     .plant_req {
         max-width: 65vw;
     }
@@ -111,5 +111,17 @@
 
     .cost {
         font-size: 25px;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 740px) {
+    .plant_req {
+        width: 40vw;
+    }
+}
+
+@media (min-width: 740px) and (max-width: 980px) {
+    .plant_req {
+        width: 27vw;
     }
 }
